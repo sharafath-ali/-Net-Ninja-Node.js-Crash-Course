@@ -2,6 +2,10 @@ const express = require('express');
 const app = express();
 var morgan = require('morgan') //third party middleware.
 
+// Serve static files from the "public" directory which means giving permission for outsider to get any file from pulic folder
+app.use(express.static('public'));
+//This setup allows external users to access any files in the public directory.
+
 // Set the view engine to EJS
 app.set('view engine', 'ejs');
 
