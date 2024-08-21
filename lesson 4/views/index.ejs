@@ -1,0 +1,21 @@
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+</head>
+
+<body>
+  <%- include('./partials/navbar') %>
+    <h1>Welcome, <%= user.name %>!</h1>
+    <ul>
+      <% items?.forEach(item=> { %>
+        <li>
+          <%= item %>
+        </li>
+        <% }) %>
+    </ul>
+</body>
+
+</html>

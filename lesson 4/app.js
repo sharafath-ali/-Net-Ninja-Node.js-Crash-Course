@@ -1,27 +1,37 @@
 const express = require('express');
-
 const app = express();
-//register view engine
 
-app.set('view engine', 'ejs')
+// Set the view engine to EJS
+app.set('view engine', 'ejs');
 
-app.get("/", (req, res) => {
-  // res.send('fffffefregergteffff')
-  res.send("<h1>home<h1>");
-})
+// Home page route
+app.get('/', (req, res) => {
+  const data = {
+    title: 'Home Page',
+    user: { name: 'Sharafath Ali' },
+    items: ['coding', 'playing video games', 'learning new things']
+  };
+  res.render('index', data);
+});
 
-app.get("/about", (req, res) => {
-  // res.send('fffffefregergteffff')
-  // res.send("<h1>about mddddddddddd<h1>")
-  res.sendFile("./views/about.html", { root: __dirname });
-})
+// About page route
+app.get('/about', (req, res) => {
+  const data = {
+    title: 'About Us',
+    user: { name: 'Sharafath Ali' }
+  };
+  res.render('about', data);
+});
 
-app.get("/user", (req, res) => {
-  res.redirect("/")
+app.get("/create-Blog", (req, res) => {
+  res.render('createBlog')
 })
 
 app.use((req, res) => {
-  res.sendStatus(404).sendFile("./views/404.html", { root: __dirname })  // we need to
-})
+  res.status(404).render('404');
+});
 
-app.listen(3001)
+// Start the server
+app.listen(3000, () => {
+  console.log('Server is running on http://localhost:3000');
+});
