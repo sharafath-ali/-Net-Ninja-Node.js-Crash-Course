@@ -13,7 +13,10 @@
     <ul>
       <% items?.forEach(item=> { %>
         <li>
-          <%= item %>
+          <h1>
+            <%= item.title %>
+          </h1>
+          <p><%= item.body %></p>
         </li>
         <% }) %>
     </ul>

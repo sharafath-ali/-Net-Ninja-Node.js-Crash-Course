@@ -1,8 +1,10 @@
 const express = require('express');
 const app = express();
 var morgan = require('morgan');
-const mongoose = require('mongoose')
-const dbUrl = "mongodb+srv://Sharu:HmANYffZgWLEpRVk@net-ninja-node-crash-co.vssl4.mongodb.net/Net-Ninja-Nodejs-Crash-Course?retryWrites=true&w=majority&appName=Net-Ninja-Node-Crash-Course"
+const mongoose = require('mongoose');
+const Blog = require('./models/Blog');
+
+const dbUrl = "mongodb+srv://Sharu:HmANYffZgWLEpRVk@net-ninja-node-crash-co.vssl4.mongodb.net/Net-Ninja-Nodejs-Crash-Course?retryWrites=true&w=majority&appName=Net-Ninja-Node-Crash-Course";
 
 const connected = mongoose.connect(dbUrl, {
   useNewUrlParser: true,
@@ -12,8 +14,21 @@ const connected = mongoose.connect(dbUrl, {
     console.log('Server is running on http://localhost:3000');
   });
   console.log('Connected to MongoDB Atlas')
+}).catch(err => console.log('Failed to connect to MongoDB Atlas', err));
+
+app.get('/add-blog', (req, res) => {
+  const blog = new Blog({
+    title: "how to learn js in 20 days",
+    body: "you cannot learn pling😂😂😂😂😂😂"
+  })
+  blog.save().then((data) => {
+    console.log(data);
+    res.send(data)
+  }).catch(err => {
+    console.error('Failed to Save', err);
+    res.status(500).send({ error: 'Failed to save blog' });
+  });
 })
-  .catch(err => console.log('Failed to connect to MongoDB Atlas', err));
 
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
@@ -26,6 +41,35 @@ app.use((req, res, next) => {
   console.log('Method:', req.method);
   next()
 });
+
+app.get("/All-blogs", (req, res) => {
+  Blog.find().then((data) => {
+    res.render('index', { title: "all blog", user: { name: 'ss' }, items: data })
+    // res.send(data);
+  }).catch(err => {
+    console.error('Failed to get', err);
+    res.status(500).send({ error: 'Failed to get' });
+  });
+})
+
+app.get("/blog", (req, res) => {
+  Blog.find({ _id: "66c7631f0b4dc680fbdca19f" }).then((data) => {
+    res.send(data)
+
+  }).catch(err => {
+    console.error('Failed to get', err);
+    res.status(500).send({ error: 'Failed to get' });
+  });
+})
+
+app.get("/blogdddd", (req, res) => {
+  Blog.findById("66c7631f0b4dc680fbdca19f").then((data) => {
+    res.send(data);
+  }).catch(err => {
+    console.error('Failed to get', err);
+    res.status(500).send({ error: 'Failed to get' });
+  });
+})
 
 app.get('/', (req, res) => {
   const data = {
