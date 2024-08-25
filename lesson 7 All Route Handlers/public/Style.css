@@ -97,6 +97,7 @@
    background-color: #e74c3c;
    color: #fff;
    border: none;
+   width: fit-content;
    padding: 10px 20px;
    font-size: 1em;
    cursor: pointer;
@@ -199,3 +200,134 @@
  .blog-link:hover h2 {
    text-decoration: underline;
  }
+
+ /* General Body Styles */
+ body {
+   font-family: Arial, sans-serif;
+   line-height: 1.6;
+   margin: 0;
+   padding: 0;
+   background-color: #f4f4f4;
+ }
+
+ /* Navbar Styles */
+ nav {
+   background: #333;
+   color: #fff;
+   padding: 10px 0;
+   text-align: center;
+ }
+
+ nav a {
+   color: #fff;
+   text-decoration: none;
+   padding: 10px;
+ }
+
+ /* Main Content Styles */
+ main {
+   max-width: 800px;
+   margin: 20px auto;
+   padding: 20px;
+   background: #fff;
+   border-radius: 8px;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+ }
+
+ h1 {
+   font-size: 2em;
+   margin-bottom: 20px;
+   text-align: center;
+ }
+
+ /* Form Styles */
+ form {
+   display: flex;
+   flex-direction: column;
+ }
+
+ .form-group {
+   margin-bottom: 15px;
+ }
+
+ label {
+   display: block;
+   margin-bottom: 5px;
+   font-weight: bold;
+ }
+
+ input[type="text"],
+ textarea {
+   width: 100%;
+   padding: 10px;
+   border: 1px solid #ddd;
+   border-radius: 4px;
+ }
+
+ input[type="text"]:focus,
+ textarea:focus {
+   border-color: #3498db;
+   outline: none;
+ }
+
+ button.submit-button {
+   background-color: #3498db;
+   color: #fff;
+   border: none;
+   padding: 10px 20px;
+   border-radius: 4px;
+   font-size: 1em;
+   cursor: pointer;
+   transition: background-color 0.3s ease;
+ }
+
+ button.submit-button:hover {
+   background-color: #2980b9;
+ }
+
+ /* General Body Styles */
+ body {
+   font-family: Arial, sans-serif;
+   line-height: 1.6;
+   margin: 0;
+   padding: 0;
+   background-color: #f4f4f4;
+ }
+
+ /* Navbar Styles */
+ nav {
+   background: #333;
+   color: #fff;
+   padding: 10px 0;
+   text-align: center;
+ }
+
+ nav a {
+   color: #fff;
+   text-decoration: none;
+   padding: 10px;
+ }
+
+ /* Main Content Styles */
+ main {
+   max-width: 800px;
+   margin: 20px auto;
+   padding: 20px;
+   background: #fff;
+   border-radius: 8px;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+ }
+
+ h1 {
+   font-size: 2em;
+   margin-bottom: 20px;
+   color: #333;
+ }
+
+ p {
+   font-size: 1em;
+   margin-bottom: 15px;
+   color: #666;
+ }
+
+ /* Optional: Additional Styles */
