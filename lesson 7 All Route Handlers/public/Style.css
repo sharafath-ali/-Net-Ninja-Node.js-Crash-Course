@@ -32,3 +32,170 @@
    font-weight: bold;
    color: red;
  }
+
+ a {
+   text-decoration: none;
+   /* Removes the underline */
+   color: inherit;
+   /* Keeps the text color consistent with the surrounding text */
+ }
+
+ /* Optional: Add a hover effect to indicate that it's clickable */
+ a:hover {
+   text-decoration: underline;
+   /* Adds an underline on hover */
+ }
+
+ /* General Body Styles */
+ body {
+   font-family: Arial, sans-serif;
+   line-height: 1.6;
+   margin: 0;
+   padding: 0;
+   background-color: #f4f4f4;
+ }
+
+ /* Navbar Styles */
+ nav {
+   background: #333;
+   color: #fff;
+   padding: 10px 0;
+   text-align: center;
+ }
+
+ nav a {
+   color: #fff;
+   text-decoration: none;
+   padding: 10px;
+ }
+
+ /* Blog Detail Styles */
+ .blog-detail {
+   max-width: 800px;
+   margin: 20px auto;
+   padding: 20px;
+   background: #fff;
+   border-radius: 8px;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+ }
+
+ .blog-detail h1 {
+   font-size: 2em;
+   margin-bottom: 20px;
+ }
+
+ .blog-detail p {
+   font-size: 1.2em;
+   margin-bottom: 20px;
+ }
+
+ .blog-detail form {
+   margin-top: 20px;
+ }
+
+ .delete-button {
+   background-color: #e74c3c;
+   color: #fff;
+   border: none;
+   padding: 10px 20px;
+   font-size: 1em;
+   cursor: pointer;
+   border-radius: 5px;
+   transition: background-color 0.3s ease;
+ }
+
+ .delete-button:hover {
+   background-color: #c0392b;
+ }
+
+ a button {
+   background-color: #3498db;
+   color: #fff;
+   border: none;
+   padding: 10px 20px;
+   font-size: 1em;
+   cursor: pointer;
+   border-radius: 5px;
+   transition: background-color 0.3s ease;
+ }
+
+ a button:hover {
+   background-color: #2980b9;
+ }
+
+ /* General Body Styles */
+ body {
+   font-family: Arial, sans-serif;
+   line-height: 1.6;
+   margin: 0;
+   padding: 0;
+   background-color: #f4f4f4;
+ }
+
+ /* Navbar Styles */
+ nav {
+   background: #333;
+   color: #fff;
+   padding: 10px 0;
+   text-align: center;
+ }
+
+ nav a {
+   color: #fff;
+   text-decoration: none;
+   padding: 10px;
+ }
+
+ /* Main Content Styles */
+ main {
+   max-width: 1200px;
+   margin: 20px auto;
+   padding: 20px;
+   background: #fff;
+   border-radius: 8px;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+ }
+
+ .page-title {
+   font-size: 2em;
+   margin-bottom: 20px;
+   text-align: center;
+ }
+
+ /* Blog List Styles */
+ .blog-list {
+   list-style-type: none;
+   padding: 0;
+   margin: 0;
+ }
+
+ .blog-item {
+   background: #fff;
+   margin: 10px 0;
+   padding: 20px;
+   border-radius: 8px;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+ }
+
+ .blog-link {
+   text-decoration: none;
+   color: #333;
+ }
+
+ .blog-item h2 {
+   font-size: 1.5em;
+   margin: 0 0 10px;
+ }
+
+ .blog-item p {
+   font-size: 1em;
+   margin: 0;
+ }
+
+ .blog-link:hover {
+   color: #3498db;
+ }
+
+ .blog-link:hover h2 {
+   text-decoration: underline;
+ }

@@ -34,9 +34,9 @@ app.use((req, res, next) => {
   next()
 });
 
-app.get("/All-blogs", (req, res) => {
+app.get("/", (req, res) => {
   Blog.find().then((data) => {
-    res.render('index', { title: "all blog", user: { name: 'ss' }, items: data })
+    res.render('index', { title: "all blog", items: data })
   }).catch(err => {
     console.error('Failed to get', err);
     res.status(500).send({ error: 'Failed to get' });
@@ -50,45 +50,27 @@ app.post("/add-Blog", (req, res) => {
     body: req.body.content,
   })
   blog.save().then((data) => {
-    console.log(data);
-    res.redirect('/All-blogs')
+    console.log("New Blog Added");
+    res.redirect('/')
   }).catch(err => {
     console.error('Failed to Save', err);
     res.status(500).send({ error: 'Failed to save blog' });
   });
 })
 
+app.get("/blog/:id", (req, res) => {
+  console.log(req.params.id)
+  Blog.findById(req.params.id).then((data) => {
+    res.render('blogDetail', { title: "blog", blog: data })
+  }).catch(err => {
+    console.error('Failed to get', err);
+    res.status(500).send({ error: 'Failed to get' });
+  });
+})
+
 app.get("/create-blog", (req, res) => {
   res.render('createBlog')
 })
-
-app.get("/blog", (req, res) => {
-  Blog.find({ _id: "66c7631f0b4dc680fbdca19f" }).then((data) => {
-    res.send(data)
-
-  }).catch(err => {
-    console.error('Failed to get', err);
-    res.status(500).send({ error: 'Failed to get' });
-  });
-})
-
-app.get("/blogdddd", (req, res) => {
-  Blog.findById("66c7631f0b4dc680fbdca19f").then((data) => {
-    res.send(data);
-  }).catch(err => {
-    console.error('Failed to get', err);
-    res.status(500).send({ error: 'Failed to get' });
-  });
-})
-
-app.get('/', (req, res) => {
-  const data = {
-    title: 'Home Page',
-    user: { name: 'Sharafath Ali' },
-    items: ['coding', 'playing video games', 'learning new things']
-  };
-  res.render('index', data);
-});
 
 app.get('/about', (req, res) => {
   const data = {
@@ -97,8 +79,6 @@ app.get('/about', (req, res) => {
   };
   res.render('about', data);
 });
-
-
 
 app.use((req, res) => {
   res.status(404).render('404');
