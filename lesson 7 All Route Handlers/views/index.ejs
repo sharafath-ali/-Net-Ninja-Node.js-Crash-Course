@@ -1,0 +1,27 @@
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel="stylesheet" href="/Style.css">
+</head>
+
+<body>
+  <%- include('./partials/navbar') %>
+    <h1>Welcome, <%= user.name %>!</h1>
+    <ul>
+      <% items?.forEach(item=> { %>
+        <li>
+          <h1>
+            <%= item.title || item %>
+          </h1>
+          <p>
+            <%= item.body || item %>
+          </p>
+        </li>
+        <% }) %>
+    </ul>
+</body>
+
+</html>
