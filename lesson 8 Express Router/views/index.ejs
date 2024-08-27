@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel="stylesheet" href="/Style.css">
+</head>
+
+<body>
+  <%- include('./partials/navbar') %>
+    <main>
+      <h1 class="page-title">
+        <%= title %>
+      </h1>
+      <ul class="blog-list">
+        <% items?.forEach(item=> { %>
+          <li class="blog-item">
+            <a href="/blog/<%= item._id %>" class="blog-link">
+              <h2>
+                <%= item.title || item %>
+              </h2>
+              <p>
+                <%= item.body || item %>
+              </p>
+            </a>
+          </li>
+          <% }) %>
+      </ul>
+    </main>
+</body>
+
+</html>
