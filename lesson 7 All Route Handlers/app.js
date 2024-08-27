@@ -80,6 +80,15 @@ app.get('/about', (req, res) => {
   res.render('about', data);
 });
 
+app.post("/delete/:id", (req, res) => {
+  Blog.findByIdAndDelete(req.params.id).then((data) => {
+    res.send('item has been deleted')
+  }).catch((err) => {
+    console.error('Failed to delete', err);
+    res.status(500).send({ error: 'Failed to delete' });
+  })
+})
+
 app.use((req, res) => {
   res.status(404).render('404');
 });
